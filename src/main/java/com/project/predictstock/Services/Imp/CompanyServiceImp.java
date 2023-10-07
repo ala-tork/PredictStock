@@ -5,6 +5,8 @@ import com.project.predictstock.Repositories.CompanyRepository;
 import com.project.predictstock.Services.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -33,4 +35,11 @@ public class CompanyServiceImp implements CompanyService {
             return null;
         }
     }
+  /*  @Override
+// Delete operation
+    @DeleteMapping("/Companies/{id}")
+    public String deleteDepartmentById(@PathVariable("id") String IdCompany) {
+        this.deleteCompanyById(IdCompany);
+        return "Deleted Successfully";
+    }*/
 }

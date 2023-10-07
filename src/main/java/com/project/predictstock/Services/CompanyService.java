@@ -16,5 +16,5 @@ public interface CompanyService {
 
 
     // Delete operation
-    //void deleteCompanyById(String IdCompany);
+  //  void deleteCompanyById(String IdCompany);
 }
