@@ -45,4 +45,6 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/predictStock
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: root
+volumes:
+  postgres-data:
 
