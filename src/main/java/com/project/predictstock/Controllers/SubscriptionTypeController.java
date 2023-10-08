@@ -3,9 +3,11 @@ package com.project.predictstock.Controllers;
 
 import com.project.predictstock.Entities.Company;
 import com.project.predictstock.Entities.Subscription;
+import com.project.predictstock.Entities.SubscriptionType;
 import com.project.predictstock.Repositories.CompanyRepository;
 import com.project.predictstock.Services.CompanyService;
 import com.project.predictstock.Services.SubscriptionService;
+import com.project.predictstock.Services.SubscriptionTypeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,28 +18,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/subscriptions")
-public class SubscriptionController {
+@RequestMapping("/subscriptionType")
+public class SubscriptionTypeController {
     @Autowired
-    private SubscriptionService subscriptionService;
+    private SubscriptionTypeService subscriptionTypeService;
 
     // Save operation
     @PostMapping("/save")
-    public Subscription saveSubscription(@Valid @RequestBody Subscription subscription) {
-        return subscriptionService.saveSubscription(subscription);
+    public SubscriptionType saveSubscriptionType(@Valid @RequestBody SubscriptionType subscriptionType) {
+        return subscriptionTypeService.saveSubscriptionType(subscriptionType);
     }
-
 
     @GetMapping("/list")
-    public List<Subscription> fetchSubscriptionList() {
-        return subscriptionService.fetchSubscriptionList();
+    public List<SubscriptionType> fetchSubscriptionTypeList() {
+        return subscriptionTypeService.fetchSubscriptionTypeList();
     }
-    @PutMapping("/update/{IdSubscription}")
-    public ResponseEntity<Subscription> updateSubscription(
-            @PathVariable String IdSubscription,
-            @Valid @RequestBody Subscription updatedSubscription
+
+    @PutMapping("/update/{IdSubscriptionType}")
+    public ResponseEntity<SubscriptionType> updateSubscriptionType(
+            @PathVariable String IdSubscriptionType,
+            @Valid @RequestBody SubscriptionType updatedSubscriptionType
     ) {
-        Subscription updated = subscriptionService.updateSubscription(updatedSubscription, IdSubscription);
+        SubscriptionType updated = subscriptionTypeService.updateSubscriptionType(updatedSubscriptionType, IdSubscriptionType);
         if (updated != null) {
             return new ResponseEntity<>(updated, HttpStatus.OK);
         } else {

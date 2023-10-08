@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SubsciptionType {
+public class SubscriptionType {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String IdSubscriptionType;

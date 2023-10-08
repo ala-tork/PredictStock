@@ -33,16 +33,14 @@ public class SubscriptionServiceImp implements SubscriptionService {
     public Subscription updateSubscription(Subscription updatedSubscription, String IdSubscription) {
         Subscription existingSubscription = subscriptionRepository.findById(IdSubscription).orElse(null);
         if (existingSubscription != null) {
-            // Update subscription properties with values from the updatedSubscription
             existingSubscription.setCreationDate(updatedSubscription.getCreationDate());
             existingSubscription.setEndSubscriptionDate(updatedSubscription.getEndSubscriptionDate());
             existingSubscription.setCompany(updatedSubscription.getCompany());
             existingSubscription.setSubscriptionType(updatedSubscription.getSubscriptionType());
 
-            // Save the updated subscription to the database
             return subscriptionRepository.save(existingSubscription);
         } else {
-            return null; // Return null if the subscription with the given ID doesn't exist.
+            return null;
         }
     }
 
