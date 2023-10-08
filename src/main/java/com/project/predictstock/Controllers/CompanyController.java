@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/Companies")
 public class CompanyController {
     @Autowired private CompanyService   CompanyService;
     // Save operation
-    @PostMapping("/companies")
+    @PostMapping("/save")
 
     public Company saveCompany(
             @Valid @RequestBody Company company)
@@ -25,12 +26,23 @@ public class CompanyController {
     }
 
     // Read operation
-    @GetMapping("/departments")
+    @GetMapping("/list")
 
     public List<Company> fetchCompanyList()
     {
         return CompanyService.fetchCompanyList();
     }
-
+    @PutMapping("/updateCompany/{IdCompany}")
+    public ResponseEntity<Company> updateCompany(
+            @PathVariable String IdCompany,
+            @Valid @RequestBody Company updatedCompany
+    ) {
+        Company updated = CompanyService.updateCompany(updatedCompany, IdCompany);
+        if (updated != null) {
+            return new ResponseEntity<>(updated, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 }
