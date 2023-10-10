@@ -1,9 +1,8 @@
 package com.project.predictstock.Repositories;
 
 import com.project.predictstock.Entities.Company;
+import com.project.predictstock.Entities.Subscription;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface CompanyRepository extends JpaRepository<Company,String> {
+public interface SubscriptionRepository extends JpaRepository<Subscription,String> {
 }

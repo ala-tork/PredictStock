@@ -24,5 +24,5 @@ public class Subscription {
     private Company company;
 
     @OneToOne
-    private SubsciptionType subscriptionType;
+    private SubscriptionType subscriptionType;
 }
