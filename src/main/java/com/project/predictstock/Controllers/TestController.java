@@ -1,14 +1,17 @@
 package com.project.predictstock.Controllers;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/Test")
 public class TestController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String custom() {
-        return "custom";
+    @GetMapping
+    public ResponseEntity<String> custom() {
+        return ResponseEntity.ok("Tesssst");
     }
 }
+
