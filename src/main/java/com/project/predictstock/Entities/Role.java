@@ -1,9 +1,9 @@
 package com.project.predictstock.Entities;
 
 public enum Role {
-    USER,
-    ADMIN,
-    CUSTOMER,
-    SUPLIER
+    ROLE_USER,
+    ROLE_ADMIN,
+    ROLE_CUSTOMER,
+    ROLE_SUPLIER
 }
 
