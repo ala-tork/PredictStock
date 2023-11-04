@@ -36,9 +36,9 @@ public class SecurityConfiguration {
         http.csrf(csrf -> csrf.disable());
         http.authorizeRequests(authz -> {
             authz.requestMatchers("/api/auth/**").permitAll() // dont need permision to access thes end point
-                    .requestMatchers("/api/Test").hasAuthority("ADMIN") // it should be and "ADMIN" to access this path
-                    .requestMatchers("/api/user/").authenticated()
-                    .anyRequest().authenticated();
+                    .requestMatchers("/api/Test").hasRole("ADMIN"); // it should be and "ADMIN" to access this path
+                    //.requestMatchers("/api/user/").authenticated()
+                    //.anyRequest().authenticated();
         });
         http.sessionManagement(sessions -> sessions
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
