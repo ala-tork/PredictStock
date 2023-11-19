@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
@@ -46,6 +48,19 @@ public class UserController {
             if(user!= null){ return  ResponseEntity.ok(user);}
             else return ResponseEntity.notFound().build();
         }catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+    @GetMapping("/GetAllUsers")
+    public ResponseEntity<List<User>> getAllUsers(){
+        try {
+            List<User> users = userService.GetAllUsers();
+//            if (users.isEmpty())
+            return ResponseEntity.ok(users);
+//            else
+//                return ResponseEntity.notFound().build();
+
+        }catch (Exception ex){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }

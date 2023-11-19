@@ -6,6 +6,8 @@ import com.project.predictstock.DTO.RegisterRequest;
 import com.project.predictstock.DTO.UpdateUserDto;
 import com.project.predictstock.Entities.User;
 
+import java.util.List;
+
 public interface UserService {
     AuthenticationResponse register(RegisterRequest request);
 
@@ -16,4 +18,5 @@ public interface UserService {
     User UpdateUser(UpdateUserDto newUser , String id);
 
     User GetUserById(String id);
+    List<User> GetAllUsers();
 }
